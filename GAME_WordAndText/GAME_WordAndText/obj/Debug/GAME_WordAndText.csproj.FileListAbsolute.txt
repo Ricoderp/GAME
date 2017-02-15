@@ -1,0 +1,15 @@
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.exe.config
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.exe
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.pdb
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.csprojResolveAssemblyReference.cache
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.exe
+D:\Documents\Programação\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.pdb
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.exe.config
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.exe
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.pdb
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.exe
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.pdb
+D:\Documents\Programação\C#\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.csprojResolveAssemblyReference.cache
+C:\Users\flaxx\Desktop\GAME_WordAndText\GAME_WordAndText\bin\Debug\GAME_WordAndText.exe.config
+C:\Users\flaxx\Desktop\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.exe
+C:\Users\flaxx\Desktop\GAME_WordAndText\GAME_WordAndText\obj\Debug\GAME_WordAndText.pdb
