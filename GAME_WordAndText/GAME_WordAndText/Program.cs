@@ -46,11 +46,24 @@ namespace GAME_WordAndText
 
         static void Players()
         {
+            bool Erro = false;
             do
             {
-                Console.Clear();
-                Console.Write("Quantos jogadores (1-4 Jogadores): ");
-                nPlayers = Convert.ToInt32(Console.ReadLine());
+                if (!Erro)
+                {
+                    Console.Clear();
+                    Console.Write("Quantos jogadores (1-4 Jogadores): ");
+                    nPlayers = Convert.ToInt32(Console.ReadLine());
+                    Erro = true;
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine(nPlayers + " não é um número de jogadores válido - 1 a 4 Jogadores");
+                    Console.Write("Quantos jogadores (1-4 Jogadores): ");
+                    nPlayers = Convert.ToInt32(Console.ReadLine());
+                }
+                
             } while (nPlayers > 4 || nPlayers < 1);
             totalPlayers = nPlayers;
 
