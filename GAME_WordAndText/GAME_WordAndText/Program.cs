@@ -1,28 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-
-/*
- *  switch ()
-    {
-        case 1:
-                            
-            break;
-        case 2:
-                            
-            break;
-        case 3:
-                            
-            break;
-        case 4:
-                            
-            break;
-    }
-*/
 namespace GAME_WordAndText
 {
     class Program
@@ -36,6 +18,17 @@ namespace GAME_WordAndText
         private static double secs;
         private static double rounds = 1.00, roundTime;
 
+        static int TryParse(string str, string outputInvalido)
+        {
+            int intFinal;
+            if (!int.TryParse(str, out intFinal))
+            {
+                Console.WriteLine(outputInvalido);
+                Console.ReadLine();
+            }
+            return intFinal;
+        }
+
         static void ClearLine()
         {
             int currentLine = Console.CursorTop;
@@ -47,13 +40,17 @@ namespace GAME_WordAndText
         static void Players()
         {
             bool Erro = false;
+            string sNPlayers;
             do
             {
                 if (!Erro)
                 {
                     Console.Clear();
                     Console.Write("Quantos jogadores (1-4 Jogadores): ");
-                    nPlayers = Convert.ToInt32(Console.ReadLine());
+                    sNPlayers = Console.ReadLine();
+                    
+                    TryParse(sNPlayers, "Introduza um input válido")
+
                     Erro = true;
                 }
                 else
@@ -61,7 +58,13 @@ namespace GAME_WordAndText
                     Console.Clear();
                     Console.WriteLine(nPlayers + " não é um número de jogadores válido - 1 a 4 Jogadores");
                     Console.Write("Quantos jogadores (1-4 Jogadores): ");
-                    nPlayers = Convert.ToInt32(Console.ReadLine());
+                    sNPlayers = Console.ReadLine();
+                    if (!int.TryParse(sNPlayers, out nPlayers))
+                    {
+                        Console.WriteLine("Input invalido");
+                        Console.ReadLine();
+                    }
+                    
                 }
                 
             } while (nPlayers > 4 || nPlayers < 1);
