@@ -5,52 +5,79 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
+
+/*
+ *  switch ()
+    {
+        case 1:
+                            
+            break;
+        case 2:
+                            
+            break;
+        case 3:
+                            
+            break;
+        case 4:
+                            
+            break;
+    }
+*/
 namespace GAME_WordAndText
 {
     class Program
     {
         private static double timer = secs; //secs; //secs
         private static bool waySelected = false, end = false; //false - tempo acabou, true - tempo ON
-        private static string palavra, texto;
+        private static string palavra, texto, input;
         private static Timer aTimer;
         private static int totalPlayers, nPlayers, currentPlayer = 0, playersLost = 0, oldCursorPos;
         private static string p1, p2, p3, p4, pTimer;
         private static double secs;
         private static double rounds = 1.00, roundTime;
+        
 
-        static int TryParse(string str, string outputInvalido)
-        {
-            int intFinal;
-            if (!int.TryParse(str, out intFinal))
-            {
-                Console.WriteLine(outputInvalido);
-                Console.ReadLine();
-            }
-            return intFinal;
-        }
-
+        //Método para limpar a linha da consola
         static void ClearLine()
         {
             int currentLine = Console.CursorTop;
             Console.SetCursorPosition(0, currentLine);
             Console.Write(new string(' ', Console.WindowWidth));
-
         }
 
+        //Método que tenta para converter um para numeros inteiros
+        static int converterInt(string a)
+        {
+            int b;
+            //Repete o código enquanto não for possivel a conversão
+            do
+            {
+                //se for possivel a conversão manda b de volta, se não for pede um numero inteiro
+                if (!int.TryParse(a, out b))
+                { 
+                    Console.WriteLine("Erro, tem de introduzir um número inteiro");
+                    a = Console.ReadLine();
+                }
+              
+            } while (!int.TryParse(a, out b));
+            return b;
+        }
+
+        //Trata de tudo relacionado com o numero de jogadores
         static void Players()
         {
             bool Erro = false;
-            string sNPlayers;
+
+            //Do while() para limitar o nr de jogadores a 4
             do
             {
+                //if para caso o numero de jogadores seja inválido, mostrar uma mensagem de erro
                 if (!Erro)
                 {
                     Console.Clear();
                     Console.Write("Quantos jogadores (1-4 Jogadores): ");
-                    sNPlayers = Console.ReadLine();
-                    
-                    TryParse(sNPlayers, "Introduza um input válido")
-
+                    input = Console.ReadLine();
+                    nPlayers = converterInt(input);
                     Erro = true;
                 }
                 else
@@ -58,17 +85,13 @@ namespace GAME_WordAndText
                     Console.Clear();
                     Console.WriteLine(nPlayers + " não é um número de jogadores válido - 1 a 4 Jogadores");
                     Console.Write("Quantos jogadores (1-4 Jogadores): ");
-                    sNPlayers = Console.ReadLine();
-                    if (!int.TryParse(sNPlayers, out nPlayers))
-                    {
-                        Console.WriteLine("Input invalido");
-                        Console.ReadLine();
-                    }
-                    
+                    input = Console.ReadLine();
+                    nPlayers = converterInt(input);
                 }
-                
+
             } while (nPlayers > 4 || nPlayers < 1);
             totalPlayers = nPlayers;
+
 
             switch (nPlayers)   //NOME DOS PLAYERS
             {
@@ -106,10 +129,14 @@ namespace GAME_WordAndText
             Console.Clear();
         }
 
+
+        //Caso o tempo acabe e não tenha sido inserida uma palavra o jogador perde
         static void OnTimedEvent(object source, ElapsedEventArgs e)
         {
+            //caso boolean waySelected seja falso
             if (waySelected == false)
             {
+                //caso o tempo acabe, desqualifica o jogador
                 if (timer <= -0.5)
                 {
 
@@ -163,6 +190,7 @@ namespace GAME_WordAndText
 
                     waySelected = true;
 
+                    
                     if ((playersLost + 1) >= totalPlayers) //Quando o jogo acabar aka restar só um player
                     {
                         end = true;
@@ -238,6 +266,7 @@ namespace GAME_WordAndText
 
         static void time()
         {
+            //Limpa a consola e pede o tempo da primeira ronda
             do
             {
                 Console.Clear();
@@ -245,6 +274,7 @@ namespace GAME_WordAndText
                 secs = Convert.ToDouble(Console.ReadLine());
             } while (secs <= 0);
 
+            //limpa a consola e pede a dificuldade por ronda
             do
             {
                 Console.SetCursorPosition(0, 1);
@@ -378,6 +408,7 @@ namespace GAME_WordAndText
 
         }
 
+        //Termina o jogo caso seja chamada (batoteiro xD)
         static void End()
         {
             Environment.Exit(0);
