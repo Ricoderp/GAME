@@ -70,7 +70,7 @@ namespace GAME_WordAndText
             } while (nPlayers > 4 || nPlayers < 1);
             totalPlayers = nPlayers;
 
-            switch (nPlayers)   //NOME DOS PLAYERS
+            switch (nPlayers)   //NOME DOS PLAYERS 
             {
                 case 1:
                     Console.Write("Nome do Jogador 1: ");
